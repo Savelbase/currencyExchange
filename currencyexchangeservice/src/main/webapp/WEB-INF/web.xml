@@ -1,0 +1,79 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <listener>
+    <listener-class>com.bank.api.listener.InitListener</listener-class>
+  </listener>
+  <filter>
+    <filter-name>filterAuth</filter-name>
+    <filter-class>com.bank.api.filter.SecurityFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>filterAuth</filter-name>
+    <servlet-name>Admin</servlet-name>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <servlet-class>com.bank.handler.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SignInServlet</servlet-name>
+    <servlet-class>com.bank.api.admin.SignInServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Home</servlet-name>
+    <servlet-class>com.bank.api.admin.HomeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Admin</servlet-name>
+    <servlet-class>com.bank.api.admin.AdminServlet</servlet-class>
+  </servlet>
+<servlet>
+    <servlet-name>Exchange</servlet-name>
+    <servlet-class>com.bank.api.admin.ExchangeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AdminExchange</servlet-name>
+    <servlet-class>com.bank.api.admin.AdminExchangeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddNewClient</servlet-name>
+    <servlet-class>com.bank.api.admin.AddClient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignInServlet</servlet-name>
+    <url-pattern>/signIn</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddNewClient</servlet-name>
+    <url-pattern>/singUp</url-pattern>
+  </servlet-mapping>
+<servlet-mapping>
+  <servlet-name>AdminExchange</servlet-name>
+  <url-pattern>/admin/exchange</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>Admin</servlet-name>
+  <url-pattern>/admin</url-pattern>
+</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <url-pattern>/api/v1/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/resources/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Exchange</servlet-name>
+    <url-pattern>/exchange</url-pattern>
+  </servlet-mapping>
+</web-app>
